@@ -11,7 +11,7 @@ function Login() {
       const response = await LoginUser(values);
       console.log("response data",response);
       if (response.success) {
-        message.success(response.message);
+        // message.success(response.message);
         console.log("Token at client side: ",response);
         localStorage.setItem("token",response.data);
         navigate("/");

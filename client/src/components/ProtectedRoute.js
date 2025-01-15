@@ -21,7 +21,7 @@ function ProtectedRoute({ children }) {
 
   const getValidUser = async () => {
     try {
-      dispatch(ShowLoading());
+      // dispatch(ShowLoading());
       const response = await GetCurrentUser();
       dispatch(SetUser(response.data));
       dispatch(HideLoading());
@@ -33,6 +33,7 @@ function ProtectedRoute({ children }) {
   };
 
   useEffect(() => {
+    console.log('token',localStorage.getItem("token"));
     if (localStorage.getItem("token")) {
       getValidUser();
     } else {
