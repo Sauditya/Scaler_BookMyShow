@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Form, Input, message } from "antd";
+import { Button, Form, Input, message, Radio } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 import { RegisterUser } from "../../api/users";
 function Register() {
@@ -15,19 +15,20 @@ function Register() {
         message.error(response.message);
       }
     } catch (err) {
-      console.log("While try to establish a server connection for register endpoint. Something unexted happened. For more details:", err);
+      console.log(
+        "While try to establish a server connection for register endpoint. Something unexted happened. For more details:",
+        err
+      );
       message.error(err.message);
     }
-  }
+  };
 
   return (
     <>
       <main className="App-header">
         <h1>Register to BookMyShow</h1>
         <section className="main-area mw-500 text-center px-3">
-
           <Form layout="vertical" onFinish={onFinish}>
-
             <Form.Item
               label="Name"
               htmlFor="name"
@@ -35,7 +36,6 @@ function Register() {
               className="d-block"
               rules={[{ required: true, message: "Name is required" }]}
             >
-
               <Input
                 id="name"
                 type="text"
@@ -48,11 +48,11 @@ function Register() {
               htmlFor="email"
               name="email"
               className="d-block"
-              rules={[{ required: true, message: "Email is required" },
-              { type: "email", message: "Please enter a valid email id." }
+              rules={[
+                { required: true, message: "Email is required" },
+                { type: "email", message: "Please enter a valid email id." },
               ]}
             >
-
               <Input
                 id="email"
                 type="text"
@@ -67,7 +67,6 @@ function Register() {
               className="d-block"
               rules={[{ required: true, message: "Password is required" }]}
             >
-
               <Input
                 id="password"
                 type="password"
@@ -86,6 +85,24 @@ function Register() {
               </Button>
             </Form.Item>
 
+            <Form.Item
+              label="Register as partner"
+              htmlFor="role"
+              className="d-block text-center"
+              name="role"
+              initialValue={false}
+              rules={[{ required: true, message: "Please select an option" }]}
+            >
+
+              <div className="d-flex justify-content-start">
+                <Radio.Group name="radiogroup" className="flex-start">
+                  <Radio value={"partner"}>Yes</Radio>
+                  <Radio value={"user"}>No</Radio>
+                </Radio.Group>
+              </div>
+
+            </Form.Item>
+            
           </Form>
           <div>
             <p>

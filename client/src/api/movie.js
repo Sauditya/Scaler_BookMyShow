@@ -35,7 +35,7 @@ export const deleteMovie = async (value) => {
         const response = await axiosInstance.post(`/api/movies/delete-movie/`,value);
         return response.data;
     }catch(err){
-        console.log("Error occuered while updating Movie", err);
+        console.log("Error occuered while deleting Movie", err);
     }
 }
 

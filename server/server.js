@@ -19,10 +19,12 @@ connectDb();
 //Global Variable
 const USER_ROUTER = require('./routes/userRouter');
 const MOVIE_ROUTER = require('./routes/movieRouter');
+const THEATRE_ROUTER = require('./routes/theatreRouter');
 
 //Routes
 app.use('/api/users', USER_ROUTER);
 app.use('/api/movies', MOVIE_ROUTER);
+app.use('/api/theatres', THEATRE_ROUTER);
 
 app.get('/',async (req,res)=>{
     return res.status(201).json({message: 'Welcome to the home page'});
