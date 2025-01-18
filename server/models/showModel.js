@@ -14,19 +14,23 @@ const showSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
-        movies: {
-            tyep: Schema.Types.ObjectId,
+        movie: {
+            tyep: mongoose.Schema.Types.ObjectId,
             ref: 'movies',
             required: true,
         },
         theatre : {
-            tyep: Schema.Types.ObjectId,
+            tyep: mongoose.Schema.Types.ObjectId,
             ref: 'theatre',
             required: true,
         },
         ticketPrice: {
             type: Number,
             required: true,
+        },
+        bookedSeats: {
+            type: Array,
+            default: [],
         },
         totalSeats: {
             type: Number,
